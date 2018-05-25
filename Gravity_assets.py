@@ -36,7 +36,7 @@ class Environment:
     
     def addPlanets(self, n, **kargs):
         for i in range(n):
-            size = kargs.get('size', np.random.randint(5, 50))
+            size = kargs.get('size', np.random.randint(5, 25))
             # size = kargs.get('size', 25)
             mass = size
             x = kargs.get('x', np.random.uniform(size, self.width-size))
@@ -58,7 +58,8 @@ class Environment:
                 rij_mag = np.linalg.norm(rij)
                 if planet_i != planet_j:
                     if self.collision_check(planet_i, planet_j):
-                        self.elastic_collision(planet_i, planet_j)
+                        # self.elastic_collision(planet_i, planet_j)
+                        pass
                     else:
                         Force += self.GravityConstant*planet_i.mass*planet_j.mass/rij_mag**3*rij
                     

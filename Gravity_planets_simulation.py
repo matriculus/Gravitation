@@ -13,15 +13,19 @@ screen = pygame.display.set_mode(screen_size)
 pygame.display.set_caption("Gravity Simulation")
 
 env = Environment(screen, width, height, background_colour)
-env.addPlanets(2)
+env.addPlanets(100)
 
 screen.fill(env.colour)
 running = True
+# file_num = 0
 while running:
     screen.fill(env.colour)
     env.showPlanets()
     env.resultant_forces()
     env.update()
+    # fname = "Gravitation_{}.png".format(file_num)
+    # pygame.image.save()
+    filenum += 1
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             # event.type will be QUIT when close button is pressed
